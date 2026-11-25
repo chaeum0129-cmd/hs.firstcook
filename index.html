@@ -985,6 +985,14 @@
         modal.classList.remove('hidden');
         modal.classList.add('flex');
         form.reset();
+                   // 네이버 광고 전환(신청완료) 추적
+          try {
+            if (window.wcs) {
+              window.wcs_add = window.wcs_add || {};
+              window.wcs_add['wa'] = 's_54bf0e760eb8';
+              window.wcs.trans({ type: 'lead' });
+            }
+          } catch (e) {}
       } catch (err) {
         alert('일시적인 오류로 접수되지 않았습니다.\n전화(031-8077-2432) 또는 카카오톡으로 문의해 주세요.');
       } finally {
@@ -1014,6 +1022,17 @@
       setTimeout(() => toast.classList.add('hidden'), 2200);
     }
   </script>
+   <!-- NAVER 공통 -->
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+if (!wcs_add) var wcs_add={};
+wcs_add["wa"] = "s_54bf0e760eb8";
+if (!_nasa) var _nasa={};
+if(window.wcs){
+  wcs.inflow();
+  wcs_do();
+}
+</script>
    <!-- Smartlog -->
 <script type="text/javascript">
 var hpt_info={'_account':'UHPT-301773', '_server': 'a300'};
